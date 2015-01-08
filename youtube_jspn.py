@@ -14,5 +14,5 @@ text = contents.decode('utf8')
 #convert text to data- phthon data structures about videos
 data = json.loads(text)
 #uses a two level python dictionary (data['fee']['entry']) and a slice ([0:6])
-for video in data['feed']['entry'][0:6]:
-	print(video['title'['$t']
+for video in data['feed']['entry'][0:14]:
+	print(video['title']['$t'])
