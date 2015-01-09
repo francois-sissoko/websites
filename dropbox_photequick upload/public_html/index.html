@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .jakepics{
+                width: 400px;
+                height: auto;
+            }
+        </style>
+        <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="kfmubrbyoqdc2by">
+            var button = Dropbox.createChooseButton(options);
+            document.getElementById("container").appendChild(button);
+            options = {
+                // Required. Called when a user selects an item in the Chooser.
+                success: function(files) {
+                    alert("Here's the file link: " + files[0].link);
+                },
+                // Optional. Called when the user closes the dialog without selecting a file
+                // and does not include any parameters.
+                cancel: function() {
+
+                },
+                // Optional. "preview" (default) is a preview link to the document for sharing,
+                // "direct" is an expiring link to download the contents of the file. For more
+                // information about link types, see Link types below.
+                linkType: "preview", // or "direct"
+
+                // Optional. A value of false (default) limits selection to a single file, while
+                // true enables multiple file selection.
+                multiselect: false, // or true
+
+                // Optional. This is a list of file extensions. If specified, the user will
+                // only be able to select files with these extensions. You may also specify
+                // file types, such as "video" or "images" in the list. For more information,
+                // see File types below. By default, all extensions are allowed.
+                extensions: ['.pdf', '.doc', '.docx']
+            };
+        </script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <img class="jakepics" src="https://dl.dropboxusercontent.com/1/view/5hsgxi86pn993oa/Camera%20Uploads/2010-09-16%2017.06.25.jpg" alt="jakepic"/>
+        <img class="jakepics" src="https://dl.dropboxusercontent.com/1/view/ehimbu11xryi2ce/Camera%20Uploads/2010-09-16%2014.57.16.jpg" alt="jakepic"/>
+    </body>
+</html>
