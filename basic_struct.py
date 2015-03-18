@@ -60,3 +60,21 @@ while True:
 	if stuff == "q":
 		break
 	print(stuff.capitalize())
+	
+#Skip Ahead with Continue 
+
+#Sometimes you don't want to break out of a loop
+#but just want to skip ahead to the new iteration
+
+#Example
+#Let's read an integer, print the square if it's
+#odd, and skip it if it's even. 
+
+while True:
+	value = input("Integer, please [q to quit]: ")
+	if value == 'q': 
+		break
+	number = int(value)
+	if number % 2 == 0: #an even number
+		continue
+	print(number, "squared is", number*number)
