@@ -78,3 +78,24 @@ while True:
 	if number % 2 == 0: #an even number
 		continue
 	print(number, "squared is", number*number)
+
+#Check break Use with else 
+
+#If the while loop ended normally (no break call),
+#control passes to an optional else. Use this when
+#you've coded a while loop to check for something
+#and breaking as soon as it is found. THe else
+#would be run if the while loop completed but the
+#object was not found:
+
+#Example
+numbers = [1,3,5]
+position = 0
+while position < len(numbers):
+	number = numbers[position]
+	if number % 2 == 0:
+		print('Found even number',number)
+		break
+	position += 1
+else: #break not called
+	print("No even number found")
