@@ -278,3 +278,135 @@ letter_counts = {letter: word.count(letter) for letter in word }
 print("Dictonary Comprehension that shows number of each letters in letter")
 print(letter_counts) 
 print("\n")
+
+#Functions
+
+#Basic function that take a color and returns a comment 
+def commentary(color):
+	if color == 'red':
+		return "It's a tomato."
+	elif color == 'green':
+		return "Its a green pepper."
+	elif color == 'bee purple':
+		return "Only bees can see this color"
+	else:
+		return "I've never heard of the color "  +  color + "."
+
+print("Calls a function that takes a color and gives comment")
+print("passing the commentary function 'commentary(blue)'")
+print( commentary('blue') )
+print("\n")
+
+#None is Useful
+#None is a special Python value that holds a place when there is nothing to say.
+#It is not the same as the boolean value False, although it looks false when evaluated 
+#as a boolean
+
+print("Example of using 'None' true or false property")
+print("'if None' situation" )
+thing = None
+if thing:
+	print("It's something and return true\n")
+else:
+	print("It's nothing and return false\n")
+
+print("'if thing is None' situation")
+if thing is None:
+	print("It's Nothing and still returned true\n")
+else:
+	print("It is something and is None returned false\n")
+
+#positional Arguments 
+#This function builds a dictionary from its positional input arguments and returns it
+print("Positional Argumrnts of a function example")
+def menu(wine, entree, dessert):
+	return { 'wine': wine, 'entree': entree, 'dessert': dessert }
+print("Passing chardonnay chicken cake as positional arguments/n")
+print(menu('chardonnay', 'chicken', 'cake'))
+print("\n")
+
+#Keyword Arguments
+#To avoid positional argument confusion, you can specify arguments by the names of
+#There corresponding parameters, even in a different order from definition 
+print("Same function as before but calling the function using keyword Arguments")
+print( menu(entree='beef', dessert = 'bagel', wine= 'bordeaux') )
+print("\n")
+
+#Specify Default Parameter Values
+
+#You can specify default value. However they are calculated when the function is defined
+#not when it is run so a a common error is to use a mutable data type such as a list or dictionary
+
+#Function expected to run each time with a fresh empty result list add the arg argument to it and 
+#then print a single-item list 
+
+def nonbuggy(arg, result=None):
+	if result is None:
+		result = []
+	result.append(arg)
+	print(result)
+
+#Gather Positional Arguments with *
+# * has Nothing to with pointers 
+#Groups a variable number of positional arguments into a tuple of parameter values
+
+#In the folowing example args is the parameter tuple that resulted form the arguments
+# that were passed to the function print_args()
+
+def print_args(*args):
+	print('Positional argument tuple:', args)
+
+print("Function that creates a tuple out of its args")
+print_args(3,2,1, 'wait', 'uh...')
+print("\n")
+
+#This is useful for writing functions such as print() that accept a variable number of arguments.
+#If your function has required positional arguments as well, *args goes at the end and grabs all the rest 
+def print_more(required1,required2,*args):
+	print('Need this one:', required1)
+	print('Need this one too:', required2)
+	print('All the rest:', args , "\n")
+	
+print("another example of '*args' being used for a variable number or parameters")
+print_more('cap', 'gloves', 'scarf', 'monocle', 'mustache wax')
+
+#Gather Keyword Arguments with **
+
+#You can use two asterisks (**) to group keyword arguments into a dictionary, where the argument names 
+#are the keys, and their corresponding dictionary values. 
+
+#The following example defines the function print_kwargs() to print its keyword arguments
+def print_kwargs(**kwargs):
+	print('Keyword arguments:', kwargs, "\n")
+
+print("Example using '**' to get key and value")
+print_kwargs(wine='merlot',entree = 'mutton', dessert='macaroon')
+
+#Docstring 
+
+def print_if_true(thing,check):
+	'''
+	Prints the first argument if a second argument is ture
+	The operation is:
+		1.Check whether the *second* argument is true.
+		2. If it is, print the *first* argument.
+	'''
+	if check:
+		print(thing)
+		
+#To print a function's docstring, call the Python 'help()' method
+print("Printing the doc string")
+help(print_if_true)
+
+#Functions Are First-Class Citizens 
+#functions are objects 
+
+def answer():
+	print(42)
+
+def run_something(func):
+	func()
+
+print("Exploring functions as objects")
+run_something(answer)
+#() mean that you are calling the function
