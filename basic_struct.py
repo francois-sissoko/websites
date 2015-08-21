@@ -410,3 +410,74 @@ def run_something(func):
 print("Exploring functions as objects")
 run_something(answer)
 #() mean that you are calling the function
+
+#Anonymous Functions: the lambda() Function 
+
+def edit_story(words, func):
+	for word in words:
+		print(func(word))
+
+stairs = ['thud','meow', 'thud', 'hiss']
+
+def enliven(word):
+	return word.capitalize() + '!'
+	
+#Normal Function
+print("This is the normal function call with no lambda")
+edit_story(stairs,enliven)
+print("\n")
+
+print("This is the function using a lambda function")
+edit_story(stairs,lambda word: word.capitalize() + '!')
+
+#Generators
+
+#Generators is a Python sequence creation object. You can iterate through potentially 
+#huge sequences without creating and storing the entire sequence in memory at once
+
+#If you want to create a potentially large sequence and the code is too large for a generator 
+#comprehension, write a generator function. Normal function but it return its value with a yield
+#statement rather than a return
+
+#Writing our own verson of range
+
+def my_range(first=0, last=10, step=1):
+	number = first
+	while number < last:
+		yield number 
+		number += step 
+
+#Returns a generator object 
+
+ranger = my_range(1, 5)
+
+#You can iterate over this generator object
+print("\n", "Iterating over a generator object")
+
+for x in ranger:
+	print(x)
+
+#Decorators
+
+#Sometimes, you want to modify an existing function without changing its source code. 
+#A common example is adding a debugging statement to see what arguments were passed in.
+
+#A decorator is a function that takes one function as input and returns another function
+
+#The function document_it() defines a decorator that will print function name and values of its 
+#args, run the function with args, print result, Return the modified number
+
+#This is what the code for document_it() looks like 
+
+def document_it(func):
+	def new_function(*args, **kwargs):
+		print('Running functions:', func._name_)
+		print('Positional arguments:', args)
+		print('Keyword arguments:', kwargs)
+		result = func(*args, **kwargs)
+		print('Result:', result)
+		return result
+	return new_function
+	
+#Namespaces and Scope 
+
