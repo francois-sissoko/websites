@@ -481,3 +481,83 @@ def document_it(func):
 	
 #Namespaces and Scope 
 
+#You can get the value for global variables inside of a function but you cannot change the values 
+#from within a function like the example below
+
+#Wrong way to code!!!!Cause and Error
+
+animal = 'fruitbat'
+
+def change_and_print_global():
+	print('inside change_and_print_global:',animal)
+	animal = 'wombat'
+	print('after the change:', animal) 
+	
+#To access the global variable raather than the local one within a function, you needed
+#to use the keyword global, If you don't say it explicitly python uses the local namespace 
+#Explicit is better than implicit 
+
+#Correct example
+
+animal = 'fruitbat'
+def change_and_print_global_correct():
+	global animal
+	animal = 'wombat'
+	print('inside change_and_print_global:', animal)
+	
+print("Example that shows how to rename a global variable inside a function")
+print("animal name before change\n")
+print(animal)
+print("\n")
+
+change_and_print_global_correct()
+
+#locals() returns a dictionary of the contents of the local namespace 
+#globals() returns a dictionary of the contents of the global namespace
+
+#Uses of _ and __ in Names 
+
+#Names that begin and end with two underscores(__) are reserved for use within Python 
+
+#Handle Errors with try and except
+
+#Example of making an exception 
+print("Examples with exceptions", "\n")
+short_list = [1, 2, 3]
+position = 5
+try:
+	short_list[position]
+except:
+	print('Need a position between 0 and', len(short_list)-1, ' but got', position)
+	
+#Specifying a plain except with no args, like before is a catchall for any exception type.
+#If more than one type of excpetion could occur, it's best to provide a except to catch 
+#all exceptions for each
+
+short_list = [1, 2, 3]
+while True:
+	value = input('Position [q to quit}? ')
+	if value == 'q':
+		break
+	try:
+		position = int(value)
+		print(short_list[position])
+	except IndexError as err:
+		print('Bad index:', position)
+	except Exception as other:
+		print('Something else broke:', other)
+		
+#Make your own exceptions
+
+#An exception is a class. It is a child of the class Exception. Let's make an exception called 
+#UppercaseException and raise it when we encounter an uppercase word in a string.
+
+class UppercaseException(Exception):
+	pass
+	
+words= ['eeenie', 'meenie','miny','MO']
+for word in words:
+	if word.isupper():
+		raise UppercaseException(word)
+		
+	
