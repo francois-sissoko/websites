@@ -37,5 +37,22 @@ periodic_table['Lead']
 print(periodic_table)
 
 #The argument to defaultdict() is a function that returns the value to be assigned to a missing key
+#So if there is no key that default value return is set by defaultdict()
+#In noide() is executed to return a value when needed 
 
+from collections import defaultdict
 
+def no_idea():
+	return "huh?"
+	
+bestiary = defaultdict(no_idea)
+bestiary['A'] = 'Abominable Snowman'
+bestiary['B'] = 'Basilisk'
+
+print("Showing defaultdict behavior")
+print("Only A and B keys have been set")
+print("Huh! is the missing key reply")
+
+print(bestiary['A'])  
+print(bestiary['B']) 
+print(bestiary['C']) 
