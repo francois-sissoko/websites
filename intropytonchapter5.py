@@ -140,3 +140,29 @@ def another_palindrome(word):
 	
 print("Is 'radar' a palindrome")
 print(another_palindrome('radar'))
+
+#iterate tools is important for iteration 
+#the tool returns an item at time when called in 
+#for...in loop
+
+print("This is an example of chain:")
+print("this prints the args as though the were a single iterable")
+
+import itertools 
+for item in itertools.chain([1,2],['a','b']):
+	print(item)
+
+i = 0
+print("cycle is  an infinite iterator, cycling through arg")
+for item in itertools.cycle([1,2]):
+	print(item)
+	i = item + i
+	if i > 20: 
+	    break
+
+print("accumulate calculated accumulated values")
+print("accumulate by default adds")
+print("adding 1,2,3,4 accumulator") 
+for item in itertools.accumulate([1,2,3,4]):
+	print(item)
+
