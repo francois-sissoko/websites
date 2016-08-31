@@ -88,3 +88,55 @@ print(breakfast_counter & lunch_counter)
 print("breakfast_counter | lunch_counter")
 print("union picks the item from the list with the highest count") 
 print(breakfast_counter | lunch_counter)
+
+#Ordered Dictionary are used when the order or the keys
+#is important because a normal dictionary doesn't remember 
+#order 
+
+from collections import OrderedDict
+quotes = OrderedDict([
+	('Moe','A wise guy, huh?'),
+	('Larry','Ow!'),
+	('Curly','Nyuk nyuk!'),
+	])
+
+#it is like a dictionary that takes 2-tuples(immutable)
+#instead of a key, value pair 
+
+print("Showing that order Dictionary works")
+for stooge in quotes:
+	print(stooge)
+	
+#Stack + Queue = deque(deck) like double end queue 
+#popleft removes from the left most and pop removes from the 
+#right most 
+
+print("showing the deque, popleft and pop")
+def palindrome(word):
+	from collections import deque
+	dq = deque(word)
+	while len(dq) > 1:
+		if dq.popleft() != dq.pop():
+			return False
+	return True
+		
+print("Creates a function to see if word is palindrome")
+print("It does this by popping from the left and right at the same time")
+print("Is 'a' palindrome")
+print(palindrome('a'))
+print("Is 'racecar' palindrome")
+print(palindrome('racecar'))
+print("Is 'halibut' palindrome")
+print(palindrome('halibut'))
+
+#The easiest way to see if palindrome is to check 
+#A word against it's reverse
+#Python doesn't have a reverse method for strings
+#but you can use slice to reverse a word 
+
+print("example of a palindrome using slice")
+def another_palindrome(word): 
+	return word == word[::-1]
+	
+print("Is 'radar' a palindrome")
+print(another_palindrome('radar'))
