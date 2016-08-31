@@ -165,4 +165,18 @@ print("accumulate by default adds")
 print("adding 1,2,3,4 accumulator") 
 for item in itertools.accumulate([1,2,3,4]):
 	print(item)
+	
+#Printing Nicely with pprint 
+print("You can print more fomated with 'pprint'")
+from pprint import pprint
+quotes = OrderedDict([
+	('Moe', 'A wise guy,  huh?'),
+	('Larry', 'Ow!'),
+	('Curly','Nyuk nyuk'),
+	])
+	
+print("Normal print:")
+print(quotes)
+print("pprint:")
+pprint(quotes)
 
