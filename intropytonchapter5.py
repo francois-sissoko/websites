@@ -56,3 +56,35 @@ print("Huh! is the missing key reply")
 print(bestiary['A'])  
 print(bestiary['B']) 
 print(bestiary['C']) 
+
+#The stdlib has a counter module that can do
+#A lot of cool things like
+
+from collections import Counter
+breakfast = ['spam','spam','eggs','spam']
+breakfast_counter = Counter(breakfast)
+print("Example showing Counter module:")
+print("Prints the number of each value in the list")
+print(breakfast_counter)
+print("Example of the most common function")
+print(breakfast_counter.most_common())
+print("Most common takes an arg to know how many different elements to return")
+print("Only returning the most common")
+print(breakfast_counter.most_common(1))
+print("You can also do set opertations on Counter")
+lunch = ['eggs','eggs','bacon']
+lunch_counter = Counter(lunch)
+print("Creating and printing a lunch counter for union ops")
+print("breakfast_counter:")
+print(breakfast_counter)
+print("lunch_counter:")
+print(lunch_counter)
+print("breakfast_counter + lunch_counter") 
+print(breakfast_counter + lunch_counter)
+print("breakfast_counter - lunch_counter")
+print(breakfast_counter - lunch_counter)
+print("breakfast_counter & lunch_counter")
+print(breakfast_counter & lunch_counter)
+print("breakfast_counter | lunch_counter")
+print("union picks the item from the list with the highest count") 
+print(breakfast_counter | lunch_counter)
